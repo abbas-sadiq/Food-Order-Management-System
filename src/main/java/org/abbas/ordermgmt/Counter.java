@@ -1,7 +1,7 @@
 package org.abbas.ordermgmt;
 
+
 public class Counter {
-      OrderQueue waitingOrderQueue = new OrderQueue();
       OrderQueue preparedOrderQueue = new OrderQueue();
 
      public void submitToPrepare(Order order) {
@@ -18,6 +18,16 @@ public class Counter {
           System.out.println("Counter: order is ready to deliver");
           Order order = preparedOrderQueue.deQueue();
           return order;
+
+     }
+
+     public Order pickToPrepare() {
+          if(preparedOrderQueue.isEmpty()){
+               System.out.println("There is no Order");
+          }
+          System.out.println("Counter: order has been picked to prepare");
+          return preparedOrderQueue.deQueue();
+
 
      }
 }
