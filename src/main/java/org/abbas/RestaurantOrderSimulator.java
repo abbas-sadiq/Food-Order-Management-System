@@ -1,18 +1,30 @@
 package org.abbas;
 
 
+import org.abbas.ordermgmt.Chef;
 import org.abbas.ordermgmt.Order;
 import org.abbas.ordermgmt.Waiter;
 
 public class RestaurantOrderSimulator {
     public static void main(String[] args) {
         Waiter waiter = new Waiter();
+        Chef chef = new Chef();
         takeOrder(waiter, new Order( 1,"Medium", "Zinger burger", "French fries", "Fizzup"));
-        takeOrder(waiter, new Order( 2,"Large", "Shami burger", "French fries", "nextCola"));
-        prepareOrder(waiter);
-        deliverOrder(waiter);
-        prepareOrder(waiter);
-        deliverOrder(waiter);
+        placeNewOrderToCounter(waiter);
+        picNewOrderToPrepare(chef);
+        placePreparedOrderToCounter(chef);
+        deliverOrderToTable(waiter);
+
+    }
+
+    private static void placePreparedOrderToCounter(Chef chef) {
+        chef.placePreparedOrderToCounter();
+        chef.checkOrderList();
+    }
+
+    private static void picNewOrderToPrepare(Chef chef) {
+        chef.pickNewOrderToPrepare();
+        chef.checkOrderList();
     }
 
     private static void takeOrder(Waiter waiter, Order order) {
@@ -20,13 +32,13 @@ public class RestaurantOrderSimulator {
         waiter.checkOrderList();
     }
 
-    private static void prepareOrder(Waiter waiter) {
-        waiter.prepareOrder();
+    private static void placeNewOrderToCounter(Waiter waiter) {
+        waiter.placeNewOrderToCounter();
         waiter.checkOrderList();
     }
 
-    private static void deliverOrder(Waiter waiter) {
-        waiter.deliverOrder();
+    private static void deliverOrderToTable(Waiter waiter) {
+        waiter.deliverOrderToTable();
         waiter.checkOrderList();
     }
 }

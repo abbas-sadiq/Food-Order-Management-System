@@ -16,7 +16,7 @@ public class Waiter {
     }
 
 
-    public void prepareOrder(){
+    public void placeNewOrderToCounter(){
 
         if(orderQueue.isEmpty()){
             System.out.println("No order in queue");
@@ -26,13 +26,9 @@ public class Waiter {
         System.out.printf("Preparing order for table %s: Pizza: %s, Burger: %s, Fries: %s, Cold Drink: %s\n",
                 order.getTableNo(), order.getPizza(), order.getBurger(), order.getFries(), order.getColdDrinks());
         counter.submitToPrepare(order);
-
-
-
-
     }
 
-    public void deliverOrder() {
+    public void deliverOrderToTable() {
         Order order = counter.pickToDeliver();
         if (order == null) {
             System.out.println("No orders to deliver!");
@@ -43,14 +39,9 @@ public class Waiter {
     }
 
 
-    public void checkOrderList(){
-        System.out.println("\n"+"==={==============Checking orders list==============  \n");
+    public void checkOrderList() {
+        System.out.println("\n" + "==={==============Waiter isChecking orders list==============  \n");
         orderQueue.displayOrders();
-
-
-
-
-
-        }
     }
+}
 
