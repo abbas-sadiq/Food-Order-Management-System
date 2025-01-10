@@ -4,25 +4,29 @@ package org.abbas.ordermgmt;
 
 
 public class Waiter {
-    OrderQueue orderQueue = new OrderQueue();
-    Counter counter = new Counter();
+    private Counter counter;
+    OrderQueue Waiter_orderQueue = new OrderQueue();
+
+    public Waiter(Counter counter) {
+        this.counter = counter;
+    }
 
     public void takeOrder(Order order){
-        System.out.printf("Taking order:: tableNo: %S, pizza: %s, burger: %s, Fries: %s, cold drink: %s",
+        System.out.printf("Waiter: Taking order:: tableNo: %S, pizza: %s, burger: %s, Fries: %s, cold drink: %s",
                 order.getTableNo(), order.getPizza(),
                 order.getBurger(), order.getFries(), order.getColdDrinks());
-        orderQueue.enQueue(order);
+        Waiter_orderQueue.enQueue(order);
 
     }
 
 
     public void placeNewOrderToCounter(){
 
-        if(orderQueue.isEmpty()){
+        if(Waiter_orderQueue.isEmpty()){
             System.out.println("No order in queue");
             return;
         }
-        Order order = orderQueue.Peek();
+        Order order = Waiter_orderQueue.deQueue();
         System.out.printf("Preparing order for table %s: Pizza: %s, Burger: %s, Fries: %s, Cold Drink: %s\n",
                 order.getTableNo(), order.getPizza(), order.getBurger(), order.getFries(), order.getColdDrinks());
         counter.submitToPrepare(order);
@@ -41,7 +45,7 @@ public class Waiter {
 
     public void checkOrderList() {
         System.out.println("\n" + "==={==============Waiter isChecking orders list==============  \n");
-        orderQueue.displayOrders();
+        Waiter_orderQueue.displayOrders();
     }
 }
 

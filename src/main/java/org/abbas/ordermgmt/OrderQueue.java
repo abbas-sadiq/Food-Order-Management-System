@@ -23,14 +23,6 @@ class OrderQueue {
         return orders.poll();
     }
 
-    public Order Peek() {
-        if (orders.isEmpty()) {
-            System.out.println("There is no Order in queue");
-            return null;
-        }
-        return orders.peek();
-    }
-
     public boolean isEmpty() {
         return orders.isEmpty();
     }

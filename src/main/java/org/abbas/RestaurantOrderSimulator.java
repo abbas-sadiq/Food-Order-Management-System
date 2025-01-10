@@ -2,14 +2,18 @@ package org.abbas;
 
 
 import org.abbas.ordermgmt.Chef;
+import org.abbas.ordermgmt.Counter;
 import org.abbas.ordermgmt.Order;
 import org.abbas.ordermgmt.Waiter;
 
 public class RestaurantOrderSimulator {
     public static void main(String[] args) {
-        Waiter waiter = new Waiter();
-        Chef chef = new Chef();
+        Counter counter = new Counter();
+        Waiter waiter = new Waiter(counter);
+
+        Chef chef = new Chef(counter);
         takeOrder(waiter, new Order( 1,"Medium", "Zinger burger", "French fries", "Fizzup"));
+//        takeOrder(waiter,new Order(2,"Small", "no", "no", "no"));
         placeNewOrderToCounter(waiter);
         picNewOrderToPrepare(chef);
         placePreparedOrderToCounter(chef);

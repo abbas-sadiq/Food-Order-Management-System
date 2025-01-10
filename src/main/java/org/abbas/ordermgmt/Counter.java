@@ -2,33 +2,36 @@ package org.abbas.ordermgmt;
 
 
 public class Counter {
-      OrderQueue OrderQueue = new OrderQueue();
-      OrderQueue preparedOrderQueue = new OrderQueue();
-      Chef chef = new Chef();
+     OrderQueue Counter_OrderQueue = new OrderQueue();
+     OrderQueue Counter_preparedOrderQueue = new OrderQueue();
+
+
 
      public void submitToPrepare(Order order) {
           System.out.printf("Counter: Order submitted for preparation:: Table %s, Pizza: %s, Burger: %s, Fries: %s, " +
                           "Cold Drink: %s\n",
                   order.getTableNo(), order.getPizza(), order.getBurger(), order.getFries(), order.getColdDrinks());
-          OrderQueue.enQueue(order);
+          Counter_OrderQueue.enQueue(order);
      }
 
      public Order pickToDeliver() {
-          if(OrderQueue.isEmpty()){
+          if(Counter_preparedOrderQueue.isEmpty()){
                System.out.println("There is no Order");
+               return null;
           }
           System.out.println("Counter: order is ready to deliver");
-          Order order = OrderQueue.deQueue();
+          Order order = Counter_preparedOrderQueue.deQueue();
           return order;
 
      }
 
-     public Order pickToPrepare() {
-          if(OrderQueue.isEmpty()){
+     public Order  pickToPrepare() {
+          if(Counter_OrderQueue.isEmpty()){
                System.out.println("No order is available to prepare.");
+               return null;
           }
           System.out.println("Counter: order has been picked to prepare");
-          Order order = OrderQueue.deQueue();
+          Order order = Counter_OrderQueue.deQueue();
           return order;
 
      }
@@ -37,7 +40,7 @@ public class Counter {
 
      public void placePreparedOrder(Order order) {
           System.out.println("Counter: order is prepared and ready to deliver");
-          preparedOrderQueue.enQueue(order);
+          Counter_preparedOrderQueue.enQueue(order);
 
 
      }
