@@ -1,15 +1,10 @@
 package org.abbas.ordermgmt;
 
 public class Chef {
-    private Counter counter;
 
     OrderQueue Chef_orderQueue = new OrderQueue();
 
-    public Chef(Counter counter) {
-        this.counter = counter;
-    }
-
-    public void pickNewOrderToPrepare(){
+    public void pickNewOrderToPrepare(Counter counter){
         Order order = counter.pickToPrepare();
         if(order == null){
             System.out.println("Chef: no new order is available to prepare");
@@ -21,7 +16,7 @@ public class Chef {
 
 
     }
-    public void placePreparedOrderToCounter(){
+    public void placePreparedOrderToCounter(Counter counter){
         if(Chef_orderQueue.isEmpty()){
             System.out.println("Chef: Order is not available to place to counter");
             return;

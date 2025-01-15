@@ -41,6 +41,6 @@ public class Menu {
     }
 
   public void showMenu(){
-      System.out.println("Menu Item:  " + getPizza()+"\n"+getBurger()+"\n"+getFries()+"\n"+ getColdDrinks());
+      System.out.println("Menu Item:  \n" + getPizza()+"\n"+getBurger()+"\n"+getFries()+"\n"+ getColdDrinks());
   }
 }

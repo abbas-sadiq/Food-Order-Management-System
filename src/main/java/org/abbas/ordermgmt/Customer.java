@@ -6,8 +6,8 @@ public class Customer {
 
 
     public Order decideOrder(List<Item> orderItems){
-        Order order = new Order(orderItems);
-
+        Order order = new Order();
+        order.setOrderItemList(orderItems);
         return order;
     }
 }

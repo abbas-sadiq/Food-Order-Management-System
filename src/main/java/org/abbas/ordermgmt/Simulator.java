@@ -1,17 +1,49 @@
 package org.abbas.ordermgmt;
 
+import java.util.List;
+
 public class Simulator {
 
     public void simulateSingleOrder(){
 
-        Item Pizza = new Item("pizza", 2000);
-        Item Burger = new Item("burger", 1000);
-        Item Fries = new Item("fries", 500);
+        Counter counter = new Counter();
+        Chef chef = new Chef();
+
+        Item pizza = new Item("pizza", 2000);
+        Item burger = new Item("burger", 1000);
+        Item fries = new Item("fries", 500);
         Item drink = new Item("drink", 200);
-        Menu menu = new Menu(Pizza, Burger, Fries, drink);
+        Menu menu = new Menu(pizza, burger, fries, drink);
         Waiter waiter = new Waiter(menu);
+        Customer customer = new Customer();
         waiter.displayMenu();
-        waiter.takeOrder();
+        Order burgerOrder = customer.decideOrder(List.of(burger, drink));
+        Order pizzaOrder = customer.decideOrder(List.of(pizza, drink));
+        Order friesOrder = customer.decideOrder(List.of(fries, drink));
+        waiter.takeOrder(burgerOrder, 1);
+        waiter.takeOrder(pizzaOrder, 2);
+        waiter.takeOrder(friesOrder, 3);
+        waiter.checkOrderList();
+       waiter.placeNewOrderToCounter(counter);
+       waiter.checkOrderList();
+       waiter.placeNewOrderToCounter(counter);
+       waiter.checkOrderList();
+       waiter.placeNewOrderToCounter(counter);
+       waiter.checkOrderList();
+       chef.pickNewOrderToPrepare(counter);
+       chef.checkOrderList();
+       chef.pickNewOrderToPrepare(counter);
+       chef.checkOrderList();
+       chef.pickNewOrderToPrepare(counter);
+       chef.checkOrderList();
+       chef.placePreparedOrderToCounter(counter);
+       waiter.deliverOrderToTable(counter);
+       chef.placePreparedOrderToCounter(counter);
+        waiter.deliverOrderToTable(counter);
+       chef.placePreparedOrderToCounter(counter);
+       waiter.deliverOrderToTable(counter);
+
+
 
 
 

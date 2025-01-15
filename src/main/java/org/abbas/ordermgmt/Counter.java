@@ -8,9 +8,6 @@ public class Counter {
 
 
      public void submitToPrepare(Order order) {
-          System.out.printf("Counter: Order submitted for preparation:: Table %s, Pizza: %s, Burger: %s, Fries: %s, " +
-                          "Cold Drink: %s\n",
-                  order.getTableNo(), order.getPizza(), order.getBurger(), order.getFries(), order.getColdDrinks());
           Counter_OrderQueue.enQueue(order);
      }
 

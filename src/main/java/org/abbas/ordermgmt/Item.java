@@ -26,6 +26,6 @@ public class Item {
     }
     @Override
     public String toString(){
-        return name + ":: (Price" + " : "+ price +" )";
+        return name + " : " + price;
     }
 }
