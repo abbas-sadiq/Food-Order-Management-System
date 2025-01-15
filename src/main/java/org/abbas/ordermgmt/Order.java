@@ -1,64 +1,37 @@
 package org.abbas.ordermgmt;
+import java.util.List;
 
 public class Order {
-    private int tableNo;
-    private String pizza;
-    private String burger;
-    private String fries;
-    private String coldDrinks;
+    private String tableNo;
+    private List<Item> itemList;
 
-    public Order(int tableNo, String pizza, String burger, String fries, String coldDrinks) {
-        this.tableNo = tableNo;
-        this.pizza = pizza;
-        this.burger = burger;
-        this.fries = fries;
-        this.coldDrinks = coldDrinks;
+    public Order(List<Item> itemList) {
+        this.itemList = itemList;
     }
 
-    public int getTableNo() {
+    public String getTableNo() {
         return tableNo;
     }
 
-    public String getPizza() {
-        return pizza;
+    public void setTableNo(String tableNo) {
+        this.tableNo = tableNo;
     }
 
-    public void setPizza(String pizza) {
-        this.pizza = pizza;
+    public List<Item> getItemList() {
+        return itemList;
     }
 
-    public String getBurger() {
-        return burger;
+    public void setItemList(List<Item> itemList) {
+        this.itemList = itemList;
     }
 
-    public void setBurger(String burger) {
-        this.burger = burger;
+    public void addItem(Item item){
+        itemList.add(item);
     }
 
-    public String getFries() {
-        return fries;
-    }
+    public void displayOrder(){
+        System.out.println("Taken Order List :: \n" + getItemList());
 
-    public void setFries(String fries) {
-        this.fries = fries;
-    }
-
-    public String getColdDrinks() {
-        return coldDrinks;
-    }
-
-    public void setColdDrinks(String coldDrinks) {
-        this.coldDrinks = coldDrinks;
-    }
-
-    public String toString(){
-        return  "Order detail {" +
-                ", Pizza='" + pizza + '\'' +
-                "Burger='" + burger + '\'' +
-
-                ", Fries='" + fries + '\'' +
-                ",coldDrinks='" + coldDrinks + '\''+
-                '}';
     }
 }
 
