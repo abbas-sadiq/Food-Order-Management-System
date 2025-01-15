@@ -1,5 +1,6 @@
 package org.abbas.ordermgmt;
 
+
 import java.util.Queue;
 import java.util.concurrent.LinkedBlockingQueue;
 
@@ -8,7 +9,6 @@ class OrderQueue {
 
     public OrderQueue() {
         this.orders = new LinkedBlockingQueue<Order>();
-
     }
 
     public void enQueue(Order order) {
@@ -28,19 +28,15 @@ class OrderQueue {
     }
 
     public void displayOrders() {
-        if (orders.isEmpty()) {
-            System.out.println("There is no Order in queue");
-        }
-        int count = 1;
+        /*Table:: 01 || Order:: burger:1000, drink:200*/
+        StringBuilder stringBuilder = new StringBuilder();
         for (Order order : orders) {
-            System.out.println("Table No # " + count++ + "\n" +
-                    "Pizza=" + order.getPizza() + "\n" +
-                    "Burger='" + order.getBurger() + "\n" +
-
-                    "Fries='" + order.getFries() + "\n" +
-                    "coldDrinks='" + order.getColdDrinks() + "\n"
-            );
+            stringBuilder.append("Table:: ").append(order.getTableNo()).append(" || Order :: ");
+            for (Item item : order.getOrderItemList()) {
+                stringBuilder.append(item.toString()).append(", ");
+            }
         }
+        System.out.println(stringBuilder);
     }
 
 }
