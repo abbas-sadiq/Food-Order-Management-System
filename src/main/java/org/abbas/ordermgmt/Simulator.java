@@ -49,9 +49,25 @@ public class Simulator {
 
 
 
+
     }
 
     public void simulate2Waiters(){
+        Item pizza = new Item("pizza", 2000);
+        Item burger = new Item("burger", 1000);
+        Item fries = new Item("fries", 500);
+        Item drink = new Item("drink", 200);
+        Menu menu = new Menu(pizza, burger, fries, drink);
+        Counter counter = new Counter();
+        Chef chef =  new Chef();
+        Waiter waiter1 = new Waiter(menu);
+        Customer customer = new Customer();
+        waiter1.displayMenu();
+        Order order = customer.decideOrder(List.of(fries,burger,drink));
+        waiter1.takeOrder(order,3);
+        waiter1.placeNewOrderToCounter(counter);
+
+
 
     }
 
