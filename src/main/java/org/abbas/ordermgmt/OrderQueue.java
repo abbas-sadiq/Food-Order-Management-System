@@ -1,6 +1,7 @@
 package org.abbas.ordermgmt;
 
 
+import java.util.List;
 import java.util.Queue;
 import java.util.concurrent.LinkedBlockingQueue;
 
@@ -28,15 +29,21 @@ class OrderQueue {
     }
 
     public void displayOrders() {
-        /*Table:: 01 || Order:: burger:1000, drink:200*/
+        /* Table:: 01 || Order:: burger:1000, drink:200 */
         StringBuilder stringBuilder = new StringBuilder();
         for (Order order : orders) {
-            stringBuilder.append("Table:: ").append(order.getTableNo()).append(" || Order :: ");
-            for (Item item : order.getOrderItemList()) {
-                stringBuilder.append(item.toString()).append(", ");
+            stringBuilder.append("Table:: ").append(order.getTableNo()).append(" || Order:: ");
+            List<Item> items = order.getOrderItemList();
+            for (int i = 0; i < items.size(); i++) {
+                stringBuilder.append(items.get(i).toString());
+                if (i < items.size() - 1) { // Check if it's not the last item
+                    stringBuilder.append(", ");
+                }
             }
+            stringBuilder.append(".\n"); // Add a period at the end of the order
         }
         System.out.println(stringBuilder);
     }
+
 
 }
