@@ -1,25 +1,23 @@
 package org.abbas.ordermgmt;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Table {
-     private int no;
-     private int capacity;
-     private List<Table> tables;
+    private int tableNo;
+    private int capacity;
+    private boolean occupied;
 
-    public Table(int no, int capacity) {
-        this.no = no;
+    public Table(int tableNo, int capacity) {
+        this.tableNo = tableNo;
         this.capacity = capacity;
-        this.tables = new ArrayList<>();
+        this.occupied = false; // Default state
     }
 
-    public int getNo() {
-        return no;
+
+    public int getTableNo() {
+        return tableNo;
     }
 
-    public void setNo(int no) {
-        this.no = no;
+    public void setTableNo(int tableNo) {
+        this.tableNo = tableNo;
     }
 
     public int getCapacity() {
@@ -30,13 +28,37 @@ public class Table {
         this.capacity = capacity;
     }
 
-    public List<Table> getTables() {
-        return tables;
+    public boolean isOccupied() {
+        return occupied;
     }
 
-    public void setTables(List<Table> tables) {
-        this.tables = tables;
+    public void setOccupied(boolean occupied) {
+        this.occupied = occupied;
     }
 
+    public void occupyTable() {
+        if (!occupied) {
+            this.occupied = true;
+        } else {
+            System.out.println("Table " + tableNo + " is already occupied.");
+        }
+    }
+
+    public void freeTable() {
+        if (occupied) {
+            this.occupied = false;
+        } else {
+            System.out.println("Table " + tableNo + " is already free.");
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "Table{" +
+                "tableNo=" + tableNo +
+                ", capacity=" + capacity +
+                ", occupied=" + occupied +
+                '}';
+    }
 
 }
