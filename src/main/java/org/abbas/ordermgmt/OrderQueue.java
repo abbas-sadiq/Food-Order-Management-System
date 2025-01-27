@@ -36,11 +36,11 @@ class OrderQueue {
             List<Item> items = order.getOrderItemList();
             for (int i = 0; i < items.size(); i++) {
                 stringBuilder.append(items.get(i).toString());
-                if (i < items.size() - 1) { // Check if it's not the last item
+                if (i < items.size()-1) {
                     stringBuilder.append(", ");
                 }
             }
-            stringBuilder.append(".\n"); // Add a period at the end of the order
+            stringBuilder.append(".\n");
         }
         System.out.println(stringBuilder);
     }
