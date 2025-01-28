@@ -7,8 +7,9 @@ public class RestaurantOrderSimulator {
     public static void main(String[] args) {
 
         Simulator simulator = new Simulator();
-        simulator.simulateSingleOrder();
-        simulator.simulate2Waiters();
+
+
+        simulator.simulate2Chefs();
     }
 
     public void simulateSingleOrder(){
