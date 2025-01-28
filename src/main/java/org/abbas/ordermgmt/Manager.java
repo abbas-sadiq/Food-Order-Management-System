@@ -11,8 +11,8 @@ public class Manager {
     }
 
     public void addTable(Table table){
+        this.tableList.add(table);
 
-        this.addTable(table);
     }
 
     public Table findTable(int tableNo){
@@ -24,6 +24,10 @@ public class Manager {
 
         return null;
     }
+    public int requestTable(int capacity){
+
+    }
+
     public boolean findVacantTable(int tableNo){
         Table table = findTable(tableNo);
         if(table != null){
@@ -40,13 +44,9 @@ public class Manager {
         }
 
     }
-
     public void displayTables() {
         for (Table table : tableList) {
             System.out.println(table);
         }
-    }
-
-    public void addTable(int i, int i1) {
     }
 }
