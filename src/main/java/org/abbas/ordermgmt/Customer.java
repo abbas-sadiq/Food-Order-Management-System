@@ -4,6 +4,10 @@ import java.util.List;
 
 public class Customer {
 
+    public void requestToManagerForTable(){
+
+    }
+
 
     public Order decideOrder(List<Item> orderItems){
         Order order = new Order();
