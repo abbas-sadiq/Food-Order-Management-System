@@ -8,7 +8,7 @@ public class Table {
     public Table(int tableNo, int capacity) {
         this.tableNo = tableNo;
         this.capacity = capacity;
-        this.occupied = false; // Default state
+        this.occupied = false;
     }
 
 
