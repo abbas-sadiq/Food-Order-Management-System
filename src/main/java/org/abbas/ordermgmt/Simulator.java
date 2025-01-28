@@ -72,6 +72,14 @@ public class Simulator {
     }
 
     public void simulate2Chefs(){
+        Manager manager = new Manager();
+        manager.addTable(1, 2);
+        manager.addTable(2, 4);
+        manager.addTable(3, 6);
+        manager.addTable(4, 8);
+        manager.findTable(1);
+        manager.displayTables();
+
 
     }
     public void simulate2Counters(){
