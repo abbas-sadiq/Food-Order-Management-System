@@ -10,18 +10,43 @@ public class Manager {
         this.tableList = new ArrayList<>();
     }
 
+    public void addTable(Table table){
+
+        this.addTable(table);
+    }
+
     public Table findTable(int tableNo){
         for (Table table : tableList) {
             if(table.getTableNo() == tableNo){
                 return table;
             }
-            
         }
+
         return null;
-        
+    }
+    public boolean findVacantTable(int tableNo){
+        Table table = findTable(tableNo);
+        if(table != null){
+            if(table.isOccupied()){
+                table.freeTable();
+                return true;
+            }else{
+                System.out.println("Table: " + tableNo + " is Already free");
+                return false;
+            }
+        }else{
+            System.out.println("Table:" + tableNo + "not found \n Please Wait....");
+            return false;
+        }
+
     }
 
+    public void displayTables() {
+        for (Table table : tableList) {
+            System.out.println(table);
+        }
+    }
 
-
-
+    public void addTable(int i, int i1) {
+    }
 }
