@@ -61,4 +61,6 @@ public class Table {
                 '}';
     }
 
+    public void assignToCustomer() {
+    }
 }
