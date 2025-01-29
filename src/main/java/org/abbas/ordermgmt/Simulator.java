@@ -16,6 +16,7 @@ public class Simulator {
         Item burger = new Item("Burger", 150);
         Item fries = new Item("Fries", 100);
         Item coldDrinks = new Item("Coke", 50);
+
         Menu menu = new Menu(pizza,burger,fries,coldDrinks);
         Chef chef = new Chef();
         Waiter waiter = new Waiter(menu);
