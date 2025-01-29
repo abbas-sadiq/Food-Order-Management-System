@@ -21,8 +21,9 @@ public class Customer {
         return assignedTableNo;
     }
 
-    // Method for customer to decide an order
-    public Order decideOrder(List<Item> orderItems) {
-        return new Order(orderItems); // Assuming Order has a constructor that takes a list of items
+    public Order decideOrder(List<Item> orderItems){
+        Order order = new Order();
+        order.setOrderItemList(orderItems);
+        return order;
     }
 }

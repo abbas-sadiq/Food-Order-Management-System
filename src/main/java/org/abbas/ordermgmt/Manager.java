@@ -26,26 +26,23 @@ public class Manager {
     public int requestTable(int capacity) {
         for (Table table : tableList) {
             if (!table.isOccupied() && table.getCapacity() >= capacity) {
-                table.assignToCustomer(); // Assuming Table has this method
+                table.assignToCustomer();
                 return table.getTableNo();
             }
         }
-        return -1; // No available table found
+        return -1;
     }
 
-    public boolean findVacantTable(int tableNo) {
+    public void findVacantTable(int tableNo) {
         Table table = findTable(tableNo);
         if (table != null) {
             if (table.isOccupied()) {
                 table.freeTable();
-                return true;
             } else {
                 System.out.println("Table: " + tableNo + " is already free");
-                return false;
             }
         } else {
             System.out.println("Table: " + tableNo + " not found. Please wait...");
-            return false;
         }
     }
 
