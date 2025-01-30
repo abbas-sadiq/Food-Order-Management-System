@@ -3,22 +3,22 @@ package org.abbas.ordermgmt;
 import java.util.List;
 
 public class Customer {
-    private Manager manager; // Reference to the restaurant manager
+    private Table table;
 
-    // Constructor to initialize with a manager
-    public Customer(Manager manager) {
-        this.manager = manager;
+    public Customer(Table table) {
+        this.table = table;
     }
 
-    // Method to request a table from the manager
-    public int requestToManagerForTable(int capacity) {
-        int assignedTableNo = manager.requestTable(capacity);
-        if (assignedTableNo == -1) {
-            System.out.println("No available table for capacity: " + capacity);
-        } else {
-            System.out.println("Table " + assignedTableNo + " assigned.");
+    public void requestForTable(int capacity, Manager manager){
+        System.out.println("Customer: we need table for: " + capacity + " Persons");
+        int assignTableNo = manager.requestTable(capacity);
+        if(assignTableNo == -1){
+            System.out.println("Manager: Sorry! Please Wait a few Minutes. I've no available for Capacity:" + capacity);
+        }else{
+            this.table = new Table(assignTableNo, capacity);
+            System.out.println("Manager: Sir please go on TableNo -> " + assignTableNo + "\nAssigned");
         }
-        return assignedTableNo;
+
     }
 
     public Order decideOrder(List<Item> orderItems){

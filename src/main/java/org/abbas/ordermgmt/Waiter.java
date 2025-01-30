@@ -4,12 +4,13 @@ package org.abbas.ordermgmt;
 
 
 public class Waiter {
-
+    private String name;
     OrderQueue Waiter_orderQueue = new OrderQueue();
     private Menu menu;
 
 
-    public Waiter(Menu menu) {
+    public Waiter(String name,Menu menu) {
+        this.name= name;
         this.menu = menu;
     }
 

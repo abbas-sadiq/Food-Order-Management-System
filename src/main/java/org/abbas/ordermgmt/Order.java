@@ -20,7 +20,7 @@ public class Order {
     public List<Item> getOrderItemList() {
         return orderItemList;
     }
-    public void setOrderItemList(List<Item> orderItemList) {
+    public void  setOrderItemList(List<Item> orderItemList) {
         this.orderItemList = orderItemList;
     }
 
