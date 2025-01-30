@@ -16,7 +16,7 @@ public class Customer {
             System.out.println("Manager: Sorry! Please Wait a few Minutes. I've no available for Capacity:" + capacity);
         }else{
             this.table = new Table(assignTableNo, capacity);
-            System.out.println("Manager: Sir please go on TableNo -> " + assignTableNo + "\nAssigned");
+            System.out.println("Manager: Sir please go on Table -> " + assignTableNo + "\nTable Assigned\n");
         }
 
     }
@@ -24,6 +24,7 @@ public class Customer {
     public Order decideOrder(List<Item> orderItems){
         Order order = new Order();
         order.setOrderItemList(orderItems);
+        order.displayOrder();
         return order;
     }
 }

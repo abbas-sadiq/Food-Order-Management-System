@@ -4,6 +4,7 @@ public class Table {
     private int tableNo;
     private int capacity;
     private boolean occupied;
+    private Manager manager;
 
     public Table(int tableNo, int capacity) {
         this.tableNo = tableNo;
@@ -60,5 +61,6 @@ public class Table {
                 ", occupied=" + occupied +
                 '}';
     }
+
 
 }

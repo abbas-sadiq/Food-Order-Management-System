@@ -8,7 +8,7 @@ public class Order {
 
     public Order() {
         this.orderItemList = new ArrayList<>();
-        this.tableNo= getTableNo();
+
     }
 
     public int getTableNo() {
@@ -20,7 +20,7 @@ public class Order {
     public List<Item> getOrderItemList() {
         return orderItemList;
     }
-    public void  setOrderItemList(List<Item> orderItemList) {
+    public void setOrderItemList(List<Item> orderItemList) {
         this.orderItemList = orderItemList;
     }
 
@@ -34,6 +34,7 @@ public class Order {
         for(Item item : orderItemList){
             System.out.println(" - " + item);
         }
+
     }
 }
 
