@@ -33,13 +33,6 @@ public class Simulator {
         chef.placePreparedOrderToCounter(counter);
         waiter.deliverOrderToTable(counter);
 
-
-
-
-
-
-
-
     }
 
 }
