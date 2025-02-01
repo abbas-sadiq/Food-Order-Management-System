@@ -8,7 +8,6 @@ public class Simulator {
         Manager manager = new Manager();
         Counter counter = new Counter();
         Chef chef = new Chef();
-        Order order = new Order();
         Item pizza = new Item("Pizza",700);
         Item burger = new Item("Burger",350);
         Item fries = new Item("Fries",150);
@@ -22,16 +21,17 @@ public class Simulator {
         manager.addTable(new Table(3, 6));
         manager.addTable(new Table(4, 8));
 
-        customer.requestForTable(3,manager);
+        Table table = customer.requestForTable(3, manager);
         waiter.displayMenu();
-        customer.decideOrder(List.of(pizza,fries,drink));
-        waiter.takeOrder(order,2);
+        Order order = customer.decideOrder(List.of(pizza,fries,drink));
+        waiter.takeOrder(order, table.getTableNo());
         waiter.checkOrderList();
         waiter.placeNewOrderToCounter(counter);
         chef.pickNewOrderToPrepare(counter);
         chef.checkOrderList();
         chef.placePreparedOrderToCounter(counter);
         waiter.deliverOrderToTable(counter);
+        waiter.generateBill(order);
 
     }
 

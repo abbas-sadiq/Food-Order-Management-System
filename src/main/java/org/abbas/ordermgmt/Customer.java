@@ -9,22 +9,24 @@ public class Customer {
         this.table = table;
     }
 
-    public void requestForTable(int capacity, Manager manager){
+    public Table requestForTable(int capacity, Manager manager){
         System.out.println("Customer: we need table for: " + capacity + " Persons");
-        int assignTableNo = manager.requestTable(capacity);
-        if(assignTableNo == -1){
+        Table assignTableNo = manager.getVacantTable(capacity);
+        if(assignTableNo == null){
             System.out.println("Manager: Sorry! Please Wait a few Minutes. I've no available for Capacity:" + capacity);
         }else{
-            this.table = new Table(assignTableNo, capacity);
+
             System.out.println("Manager: Sir please go on Table -> " + assignTableNo + "\nTable Assigned\n");
         }
+        return manager.getVacantTable(capacity);
 
     }
 
-    public Order decideOrder(List<Item> orderItems){
+    public Order decideOrder(List<Item> orderItemList){
         Order order = new Order();
-        order.setOrderItemList(orderItems);
+        order.setOrderItemList(orderItemList);
         order.displayOrder();
+
         return order;
     }
 }

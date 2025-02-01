@@ -48,5 +48,11 @@ public class Waiter {
     public void displayMenu(){
         menu.showMenu();
     }
+
+    public void generateBill(Order order) {
+        Bill bill = new Bill(order);
+        bill.printBill();
+    }
+
 }
 
