@@ -22,7 +22,7 @@ public class Bill {
     }
 
     public void printBill() {
-        System.out.println("\n===== 🧾 Bill for Table: " + tableNo + " =====");
+        System.out.println("\n=====  Bill for Table: " + tableNo + " =====");
         for (Item item : orderItems) {
             System.out.println(item.getName() + " - " + item.getPrice());
         }
