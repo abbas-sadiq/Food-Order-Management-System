@@ -1,56 +1,58 @@
 package org.abbas.ordermgmt;
 
 
-
+import java.util.List;
 
 public class Waiter {
-    OrderQueue orderQueue = new OrderQueue();
-    Counter counter = new Counter();
+    private String name;
+    OrderQueue Waiter_orderQueue = new OrderQueue();
+    private Menu menu;
 
-    public void takeOrder(Order order){
-        System.out.printf("Taking order:: tableNo: %S, pizza: %s, burger: %s, Fries: %s, cold drink: %s",
-                order.getTableNo(), order.getPizza(),
-                order.getBurger(), order.getFries(), order.getColdDrinks());
-        orderQueue.enQueue(order);
 
+    public Waiter(String name,Menu menu) {
+        this.name= name;
+        this.menu = menu;
+    }
+
+    public void takeOrder(Order order, int tableNo){
+        order.setTableNo(tableNo);
+        Waiter_orderQueue.enQueue(order);
     }
 
 
-    public void prepareOrder(){
+    public void placeNewOrderToCounter(Counter counter){
 
-        if(orderQueue.isEmpty()){
+        if(Waiter_orderQueue.isEmpty()){
             System.out.println("No order in queue");
             return;
         }
-        Order order = orderQueue.Peek();
-        System.out.printf("Preparing order for table %s: Pizza: %s, Burger: %s, Fries: %s, Cold Drink: %s\n",
-                order.getTableNo(), order.getPizza(), order.getBurger(), order.getFries(), order.getColdDrinks());
+        Order order = Waiter_orderQueue.deQueue();
         counter.submitToPrepare(order);
-
-
-
-
     }
 
-    public void deliverOrder() {
+    public void deliverOrderToTable(Counter counter) {
         Order order = counter.pickToDeliver();
         if (order == null) {
             System.out.println("No orders to deliver!");
             return;
         }
-        System.out.printf("Order Delivered :: Pizza: %s, Burger: %s, Fries: %s, Cold Drink: %s%n",
-                order.getPizza(), order.getBurger(), order.getFries(), order.getColdDrinks());
+        System.out.println("Waiter: Order Delivered Successfully...");
     }
 
 
-    public void checkOrderList(){
-        System.out.println("\n"+"==={==============Checking orders list==============  \n");
-        orderQueue.displayOrders();
-
-
-
-
-
-        }
+    public void checkOrderList() {
+        System.out.println("\n" + "==={==============Waiter isChecking orders list==============  \n");;
+        Waiter_orderQueue.displayOrders();
     }
+
+    public void displayMenu(){
+        menu.showMenu();
+    }
+
+    public void generateBill(Order order) {
+        Bill bill = new Bill(order);
+        bill.printBill();
+    }
+
+}
 

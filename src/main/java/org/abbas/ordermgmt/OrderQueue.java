@@ -1,5 +1,7 @@
 package org.abbas.ordermgmt;
 
+
+import java.util.List;
 import java.util.Queue;
 import java.util.concurrent.LinkedBlockingQueue;
 
@@ -8,7 +10,6 @@ class OrderQueue {
 
     public OrderQueue() {
         this.orders = new LinkedBlockingQueue<Order>();
-
     }
 
     public void enQueue(Order order) {
@@ -23,32 +24,26 @@ class OrderQueue {
         return orders.poll();
     }
 
-    public Order Peek() {
-        if (orders.isEmpty()) {
-            System.out.println("There is no Order in queue");
-            return null;
-        }
-        return orders.peek();
-    }
-
     public boolean isEmpty() {
         return orders.isEmpty();
     }
 
     public void displayOrders() {
-        if (orders.isEmpty()) {
-            System.out.println("There is no Order in queue");
-        }
-        int count = 1;
+        /* Table:: 01 || Order:: burger:1000, drink:200 */
+        StringBuilder stringBuilder = new StringBuilder();
         for (Order order : orders) {
-            System.out.println("Table No # " + count++ + "\n" +
-                    "Pizza=" + order.getPizza() + "\n" +
-                    "Burger='" + order.getBurger() + "\n" +
-
-                    "Fries='" + order.getFries() + "\n" +
-                    "coldDrinks='" + order.getColdDrinks() + "\n"
-            );
+            stringBuilder.append("Table:: ").append(order.getTableNo()).append(" || Order:: ");
+            List<Item> items = order.getOrderItemList();
+            for (int i = 0; i < items.size(); i++) {
+                stringBuilder.append(items.get(i).toString());
+                if (i < items.size()-1) {
+                    stringBuilder.append(", ");
+                }
+            }
+            stringBuilder.append("\n");
         }
+        System.out.println(stringBuilder);
     }
+
 
 }

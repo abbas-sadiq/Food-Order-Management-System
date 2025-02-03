@@ -1,64 +1,40 @@
 package org.abbas.ordermgmt;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Order {
     private int tableNo;
-    private String pizza;
-    private String burger;
-    private String fries;
-    private String coldDrinks;
+    private List<Item> orderItemList;
 
-    public Order(int tableNo, String pizza, String burger, String fries, String coldDrinks) {
-        this.tableNo = tableNo;
-        this.pizza = pizza;
-        this.burger = burger;
-        this.fries = fries;
-        this.coldDrinks = coldDrinks;
+    public Order() {
+        this.orderItemList = new ArrayList<>();
+
     }
 
     public int getTableNo() {
         return tableNo;
     }
-
-    public String getPizza() {
-        return pizza;
+    public void setTableNo(int tableNo) {
+        this.tableNo = tableNo;
+    }
+    public List<Item> getOrderItemList() {
+        return orderItemList;
+    }
+    public void setOrderItemList(List<Item> orderItemList) {
+        this.orderItemList = orderItemList;
     }
 
-    public void setPizza(String pizza) {
-        this.pizza = pizza;
+
+    public void addItem(Item item){
+        orderItemList.add(item);
     }
 
-    public String getBurger() {
-        return burger;
-    }
+    public void displayOrder(){
+        System.out.println("\n========Customer: Decide Order List=========== \n");
+        for(Item item : orderItemList){
+            System.out.println(" - " + item);
+        }
 
-    public void setBurger(String burger) {
-        this.burger = burger;
-    }
-
-    public String getFries() {
-        return fries;
-    }
-
-    public void setFries(String fries) {
-        this.fries = fries;
-    }
-
-    public String getColdDrinks() {
-        return coldDrinks;
-    }
-
-    public void setColdDrinks(String coldDrinks) {
-        this.coldDrinks = coldDrinks;
-    }
-
-    public String toString(){
-        return  "Order detail {" +
-                ", Pizza='" + pizza + '\'' +
-                "Burger='" + burger + '\'' +
-
-                ", Fries='" + fries + '\'' +
-                ",coldDrinks='" + coldDrinks + '\''+
-                '}';
     }
 }
 

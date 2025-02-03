@@ -1,32 +1,17 @@
 package org.abbas;
 
 
-import org.abbas.ordermgmt.Order;
-import org.abbas.ordermgmt.Waiter;
+import org.abbas.ordermgmt.*;
 
 public class RestaurantOrderSimulator {
     public static void main(String[] args) {
-        Waiter waiter = new Waiter();
-        takeOrder(waiter, new Order( 1,"Medium", "Zinger burger", "French fries", "Fizzup"));
-        takeOrder(waiter, new Order( 2,"Large", "Shami burger", "French fries", "nextCola"));
-        prepareOrder(waiter);
-        deliverOrder(waiter);
-        prepareOrder(waiter);
-        deliverOrder(waiter);
+
+        Simulator simulator = new Simulator();
+        simulator.simulateSingleOrder();
+
     }
 
-    private static void takeOrder(Waiter waiter, Order order) {
-        waiter.takeOrder(order);
-        waiter.checkOrderList();
-    }
+    public void simulateSingleOrder(){
 
-    private static void prepareOrder(Waiter waiter) {
-        waiter.prepareOrder();
-        waiter.checkOrderList();
-    }
-
-    private static void deliverOrder(Waiter waiter) {
-        waiter.deliverOrder();
-        waiter.checkOrderList();
     }
 }
