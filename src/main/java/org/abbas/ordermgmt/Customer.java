@@ -29,4 +29,8 @@ public class Customer {
 
         return order;
     }
+    public void paidBill(){
+
+
+    }
 }
