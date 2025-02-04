@@ -1,8 +1,4 @@
 package org.abbas.ordermgmt;
-
-
-import java.util.List;
-
 public class Waiter {
     private String name;
     OrderQueue Waiter_orderQueue = new OrderQueue();
