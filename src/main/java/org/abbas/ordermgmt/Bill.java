@@ -6,6 +6,11 @@ public class Bill {
     private int tableNo;
     private List<Item> orderItems;
     private double totalAmount;
+    private boolean isPaid;
+
+    public boolean isPaid() {
+        return isPaid;
+    }
 
     public Bill(Order order) {
         this.tableNo = order.getTableNo();
@@ -29,4 +34,9 @@ public class Bill {
         System.out.println("Total Amount: " + totalAmount);
         System.out.println("==================================\n");
     }
+    public void payBill() {
+        this.isPaid = true;
+        System.out.println("Customer: Bill for Table " + tableNo + " has been paid.");
+    }
+
 }

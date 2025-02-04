@@ -32,6 +32,8 @@ public class Simulator {
         chef.placePreparedOrderToCounter(counter);
         waiter.deliverOrderToTable(counter);
         waiter.generateBill(order);
+        customer.payBill(new Bill(order));
+
     }
 
 }
