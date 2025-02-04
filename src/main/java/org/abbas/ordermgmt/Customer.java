@@ -29,8 +29,12 @@ public class Customer {
 
         return order;
     }
-    public void paidBill(){
+    public void payBill(Bill bill) {
 
+            bill.setPaid(true);
+            System.out.println("Bill paid successfully!");
+            System.out.println("Payment failed. Please try again.");
 
     }
+
 }

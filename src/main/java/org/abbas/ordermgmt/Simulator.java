@@ -15,7 +15,7 @@ public class Simulator {
         Menu menu = new Menu(pizza,burger,fries,drink);
         Waiter waiter = new Waiter("Ali",menu);
 
-        //Tables Added By Manager:
+
         manager.addTable(new Table(1, 2));
         manager.addTable(new Table(2, 4));
         manager.addTable(new Table(3, 6));
@@ -32,6 +32,7 @@ public class Simulator {
         chef.placePreparedOrderToCounter(counter);
         waiter.deliverOrderToTable(counter);
         waiter.generateBill(order);
+       ;
 
     }
 

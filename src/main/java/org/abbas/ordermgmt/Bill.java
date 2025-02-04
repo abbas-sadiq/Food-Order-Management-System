@@ -29,4 +29,7 @@ public class Bill {
         System.out.println("Total Amount: " + totalAmount);
         System.out.println("==================================\n");
     }
+
+    public void setPaid(boolean b) {
+    }
 }
