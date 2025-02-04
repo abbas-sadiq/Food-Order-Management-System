@@ -30,7 +30,6 @@ public class Customer {
         return order;
     }
     public void payBill(Bill bill) {
-        Order order = new Order();
         System.out.println("Customer: Received the bill. Paying now...");
         bill.payBill();
     }
