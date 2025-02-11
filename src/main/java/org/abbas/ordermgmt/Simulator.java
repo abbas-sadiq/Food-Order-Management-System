@@ -21,7 +21,7 @@ public class Simulator {
         manager.addTable(new Table(3, 6));
         manager.addTable(new Table(4, 8));
 
-        Table table = customer.requestForTable(3, manager);
+        Table table = customer.requestForTable(2, manager);
         waiter.displayMenu();
         Order order = customer.decideOrder(List.of(pizza,fries,drink));
         waiter.takeOrder(order, table.getTableNo());

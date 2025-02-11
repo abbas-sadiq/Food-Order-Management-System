@@ -40,7 +40,7 @@ class OrderQueue {
                     stringBuilder.append(", ");
                 }
             }
-            stringBuilder.append("\n");
+            stringBuilder.append(".\n");
         }
         System.out.println(stringBuilder);
     }
